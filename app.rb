@@ -13,5 +13,5 @@ get "/city" do
 end
 
 get "/attraction" do
-  exec "select * from attraction left outer join city on attraction.ciry_id = city.ciry_id left outer join country on attraction.country_id = country.country_id"
+  exec "select * from attraction a,country b,city c where a.country_id = b.country_id and a.city_id = c.city_id and b.country_id =  c.country_id"
 end
